@@ -33,12 +33,9 @@ public class Classification{
 		SMO svm = new SMO();
 		svm.buildClassifier(dataset);
 		System.out.println(svm.getCapabilities().toString());
-		
-		String[] options = new String[4];
-		options[0] = "-C"; options[1] = "0.11";
-		options[2] = "-M"; options[3] = "3";
+
 		J48 tree = new J48();
-		tree.setOptions(options);
+		tree.setOptions(new String[]{"-C", "0.11", "-M", "3"});
 		tree.buildClassifier(dataset);
 		System.out.println(tree.getCapabilities().toString());
 		System.out.println(tree.graph());
